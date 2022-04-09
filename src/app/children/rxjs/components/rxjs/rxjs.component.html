@@ -1,0 +1,13 @@
+<div class="rxjs">
+    <div>
+        <button (click)="stopAll()">stop all</button>
+        <button (click)="addObservable('cold')">add cold</button>
+        <button (click)="addObservable('hot')">add hot</button>
+    </div>
+
+    <div #logDisplay class="rxjs__logs" *ngIf="consoleLogList$ | async as consoleLogList">
+        <div class="rxjs__log" *ngFor="let log of consoleLogList" [ngStyle]="{'color': log.color}">
+            {{ log.message }}
+        </div>
+    </div>
+</div>

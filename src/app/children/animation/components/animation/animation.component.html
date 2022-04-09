@@ -1,0 +1,11 @@
+<div class="animation">
+    <h1>Animation Page</h1>
+    <div *ngFor="let card of cardList; index as i">
+        <p class="animation__button" (click)="toggle(i)">toggle me</p>
+        <div class="animation__togglable" [@openClose]="card.opened ? 'open' : 'closed'">
+            <div class="animation__text" >
+                {{ card.text }}
+            </div>
+        </div>
+    </div>
+</div>

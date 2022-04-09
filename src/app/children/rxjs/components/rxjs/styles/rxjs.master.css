@@ -1,0 +1,21 @@
+.rxjs {
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+
+.rxjs__logs {
+    overflow:auto; 
+    margin-top: 10px;
+    padding: 5px;
+    height: 600px;
+    background-color: rgb(233, 233, 222);
+}
+
+.rxjs__log {
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}

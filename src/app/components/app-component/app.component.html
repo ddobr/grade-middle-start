@@ -1,0 +1,12 @@
+<nav class="nav">
+    <ng-template ngFor let-linkItem="$implicit" [ngForOf]="linkList">
+        <ng-container
+            *ngTemplateOutlet="link; context: { item: linkItem }"
+        ></ng-container>
+    </ng-template>
+</nav>
+<router-outlet></router-outlet>
+
+<ng-template #link let-link="item">
+    <a class="nav__link" [routerLink]="[link.url]" [ngClass]="{ nav__link_selected: isSelected(link.url) }">{{ link.title }}</a>
+</ng-template>

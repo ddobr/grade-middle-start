@@ -1,0 +1,27 @@
+.animation {
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+
+.animation__button {
+    background-color: rgb(69, 102, 79);
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.animation__togglable {
+    overflow: hidden;
+}
+
+.animation__text {
+    background-color: rgb(202, 233, 211);
+    padding: 10px;
+}
