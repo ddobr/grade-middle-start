@@ -1,6 +1,6 @@
 import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { concatMap, interval, map, mergeMap, Observable, switchMap, take } from "rxjs";
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
+import { concatMap, interval, map, mergeMap, Observable, Subject, switchMap, take, takeUntil } from "rxjs";
 
 @Component({
     selector: 'app-subscriber',
@@ -26,7 +26,7 @@ import { concatMap, interval, map, mergeMap, Observable, switchMap, take } from 
         ])
     ]
 })
-export class SubscriberComponent implements OnInit {
+export class SubscriberComponent implements OnInit, OnDestroy {
     @Input()
     public source!: Observable<number>;
     @Input()
@@ -39,18 +39,24 @@ export class SubscriberComponent implements OnInit {
     public color: string = this.createRandomColor();
 
     private _multiplier: number = 1;
-    private _switchmapRepetions: number = 1;
+    private _switchmapRepetitions: number = 1;
+    private _destroy$: Subject<void> = new Subject<void>();
 
     constructor(private _changeDetectorRef: ChangeDetectorRef) {
 
     }
 
+    public ngOnDestroy(): void {
+        this._destroy$.next();
+    }
+
     public ngOnInit(): void {
         this.innerSource$ = this.source.pipe(
+            takeUntil(this._destroy$),
             map((i) => i * this._multiplier),
             switchMap((i) => {
                 return interval(200).pipe(
-                    take(this._switchmapRepetions),
+                    take(this._switchmapRepetitions),
                     map((e) => {
                         return i * (e + 1);
                     })
@@ -68,7 +74,7 @@ export class SubscriberComponent implements OnInit {
     }
 
     public switchmapInputHandler(e: Event): void {
-        this._switchmapRepetions = Number.parseInt((e.target as any).value);
+        this._switchmapRepetitions = Number.parseInt((e.target as any).value);
     }
 
 
