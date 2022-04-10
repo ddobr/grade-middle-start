@@ -1,0 +1,21 @@
+<div class="observable">
+    <div class="observable__header">
+        <h2 class="observable__title">{{ observableType }} observable</h2>
+        <select class="observable__select" (input)="inputHandler($event)">
+            <option value="1000">1000ms</option>
+            <option value="2000">2000ms</option>
+            <option value="500">500ms</option>
+        </select>
+    </div>
+    
+    <div class="observable__body">
+        <div *ngFor="let subscriberProps of subscriberPropsList" class="observable__subscriber">
+            <app-subscriber [source]="subscriberProps.observable" [index]="subscriberProps.index" (delete)="deleteSubscriber($event)"></app-subscriber>
+        </div>
+        <div class="observable__create-card"  (click)="addSubscriber()">
+            <div class="observable__create-icon">
+                <h1>+</h1>
+            </div>
+        </div>
+    </div>
+</div>

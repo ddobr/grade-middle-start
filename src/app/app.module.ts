@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './components/app-component/app.component';
+import { NgLetDirective } from './pipes/ng-let.pipe';
 
 const routes: Routes = [
     {

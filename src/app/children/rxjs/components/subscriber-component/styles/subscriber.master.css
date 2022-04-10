@@ -1,0 +1,75 @@
+.subscriber {
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.subscriber__header {
+    background-color: rgb(103, 145, 116);
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscriber__title {
+    color: white;
+    margin-left: 5px;
+}
+
+.subscriber__delete-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.274);
+}
+
+.subscriber__delete-button span {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    position: relative;
+    top: -1px;
+}
+
+.subscriber__light-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    margin: 10px auto;
+
+    position: relative;
+
+    border: 1px solid black;
+    background-color: rgb(204, 204, 204);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscriber__light {
+    position: absolute;
+
+    content: '';
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.subscriber__counter {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+
+    position: relative;
+    top: -2px;
+}
